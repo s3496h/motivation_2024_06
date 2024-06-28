@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class App {
     private Scanner sc;
 
@@ -40,6 +41,7 @@ public class App {
                 String body = sc.nextLine();
                 System.out.print("source : ");
                 String source = sc.nextLine();
+
                 Motivation motivation = new Motivation(id, body, source);
 //                motivation.id = id;
 //                motivation.body = body;
