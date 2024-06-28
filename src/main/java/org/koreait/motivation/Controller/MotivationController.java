@@ -1,5 +1,6 @@
 package org.koreait.motivation.Controller;
 
+import org.koreait.Container;
 import org.koreait.motivation.entity.Motivation;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class MotivationController {
     List<Motivation> motivations;
     Scanner sc;
 
-    public MotivationController(Scanner sc) {
+    public MotivationController() {
         this.sc = sc;
         lastId = 0;
         motivations = new ArrayList<>();
@@ -21,9 +22,9 @@ public class MotivationController {
     public void add() {
         int id = lastId + 1;
         System.out.print("body : ");
-        String body = sc.nextLine();
+        String body = Container.getScanner().nextLine();
         System.out.print("source : ");
-        String source = sc.nextLine();
+        String source = Container.getScanner().nextLine();
 
         Motivation motivation = new Motivation(id, body, source);
 
