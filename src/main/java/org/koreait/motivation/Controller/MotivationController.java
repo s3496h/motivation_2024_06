@@ -3,6 +3,7 @@ package org.koreait.motivation.Controller;
 import org.koreait.Container;
 import org.koreait.motivation.entity.Motivation;
 import org.koreait.Rq;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -53,9 +54,35 @@ public class MotivationController {
 
             System.out.printf("   %d  //    %s     //    %s  \n", motivation.getId(), motivation.getSource(), motivation.getBody());
         }
-}
+    }
+
     public void delete(Rq rq) {
         System.out.println("delete 실행");
+        int id;
+        try {
+             id = Integer.parseInt(rq.getParams("id"));
+        } catch (NumberFormatException e) {
+            System.out.println("정수 입력 오류");
+            return;
         }
+        Motivation motivation = findById(id);
+        if (motivation == null) {
+            System.out.printf("%d번 motivation은 없어\n", id);
+            return;
+        }
+        motivations.remove(motivation);
+        System.out.printf("%d번 motivation은 삭제했습니다\n", id);
+    }
+
+    private Motivation findById(int id) {
+        for (Motivation motivation : motivations) {
+            if (motivation.getId() == id) {
+                return motivation;
+            }
+
+        }
+        return null;
+    }
 }
+
 
