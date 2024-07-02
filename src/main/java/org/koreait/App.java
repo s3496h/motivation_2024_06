@@ -1,5 +1,6 @@
 package org.koreait;
-import org.koreait.motivation.Controller.MotivationController;
+
+import org.koreait.motivation.controller.MotivationController;
 import org.koreait.system.controller.SystemController;
 
 public class App {
@@ -47,9 +48,11 @@ public class App {
                 default:
                     System.out.println("사용할 수 없는 명령어입니다");
                     break;
-
             }
 
         }
     }
 }
+
+
+
